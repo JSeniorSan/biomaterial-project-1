@@ -3,7 +3,7 @@ import React from "react";
 
 const MainLab = ({}: {}) => {
   return (
-    <section className="flex gap-10 p-10  flex-wrap flex-col col-start-3 col-end-7 row-start-2 row-end-3 bg-[#beb6b65e] my-10 rounded-xl text-lg">
+    <section className="flex gap-10 p-10  flex-wrap flex-col col-start-3 col-end-7 row-start-2 row-end-3  my-10 rounded-xl text-lg ">
       <h1 className="text-5xl font-bold">Полимеризация стирола в блоке</h1>
 
       <label className="text-3xl">Схема химической реакции:</label>
@@ -13,7 +13,7 @@ const MainLab = ({}: {}) => {
         alt="Схема реакции полимеризация стирола в блоке"
         width={500}
         height={400}
-        className="rounded shadow-lg"
+        className="rounded shadow-lg "
       />
 
       <h2 className="text-3xl font-light">1. Теоретическая часть</h2>
