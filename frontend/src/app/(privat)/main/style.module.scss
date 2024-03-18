@@ -1,0 +1,6 @@
+.mainLayout {
+  display: grid;
+  grid-template-rows: 85px 100vh;
+  grid-template-columns: repeat(6, 1fr);
+  height: calc(100vh - 85px);
+}
