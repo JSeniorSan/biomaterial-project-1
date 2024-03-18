@@ -51,8 +51,7 @@ const Registration = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-2 md:border-2 md:p-5 md:w-96 md:bg-[#CC7236] md:bg-opacity-40 md:rounded-2xl backdrop-blur-md md:shadow-md"
-      >
+        className="space-y-2 md:border-2 md:p-5 md:w-96 md:bg-[#756C83] md:bg-opacity-40 md:rounded-2xl backdrop-blur-md md:shadow-md">
         {registrationModel.map((model) => {
           return (
             <FormField

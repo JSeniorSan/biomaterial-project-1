@@ -6,7 +6,7 @@ import MenuItem from "../_ui/menu-item";
 
 const Menu = () => {
   return (
-    <aside className="w-max h-full   hidden md:flex md:flex-col md:items-start md:p-5 md:gap-7 row-start-2 row-end-3 fixed mt-7">
+    <aside className="w-max h-full  hidden md:flex md:flex-col md:items-start md:p-5 md:gap-7 row-start-2 row-end-3 fixed mt-16 col-start-2 col-end-3">
       <div className="flex gap-3 items-center">
         <div className="w-11 h-11 bg-slate-50 rounded-full border border-[#5E616A]"></div>
         <div className="flex flex-col gap-2">
