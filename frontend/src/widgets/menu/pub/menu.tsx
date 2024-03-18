@@ -6,9 +6,9 @@ import MenuItem from "../_ui/menu-item";
 
 const Menu = () => {
   return (
-    <div className="w-full h-full dark:bg-[#283149] border hidden md:flex md:flex-col md:items-start md:p-5 md:gap-7 row-start-2 row-end-3 ">
+    <aside className="w-max h-full   hidden md:flex md:flex-col md:items-start md:p-5 md:gap-7 row-start-2 row-end-3 fixed mt-7">
       <div className="flex gap-3 items-center">
-        <div className="w-11 h-11 bg-slate-50 rounded-full"></div>
+        <div className="w-11 h-11 bg-slate-50 rounded-full border border-[#5E616A]"></div>
         <div className="flex flex-col gap-2">
           <div className="flex gap-3">
             <div>Имя</div>
@@ -22,7 +22,7 @@ const Menu = () => {
         <Input
           type="search"
           placeholder="Название работы"
-          className="rounded-2xl bg-slate-700 font-light"
+          className="rounded-2xl dark:bg-slate-700 font-light bg-transparent border-2 border-[#5E616A]"
         />
       </div>
       <div className="w-full h-fit flex flex-col gap-3 justify-start items-start ml-3">
@@ -36,7 +36,7 @@ const Menu = () => {
           );
         })}
       </div>
-    </div>
+    </aside>
   );
 };
 
