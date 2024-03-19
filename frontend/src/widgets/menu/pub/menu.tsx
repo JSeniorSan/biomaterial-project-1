@@ -3,10 +3,11 @@ import { Input } from "@/shared/ui/input";
 import React from "react";
 import { menuData } from "../model/menu-data";
 import MenuItem from "../_ui/menu-item";
+import styles from "./style.module.scss";
 
 const Menu = () => {
   return (
-    <aside className="w-max h-fit  hidden md:flex md:flex-col md:items-start md:p-5 md:gap-7 row-start-2 row-end-3 fixed mt-16 col-start-2 col-end-3">
+    <aside className={styles.menu}>
       <div className="flex gap-3 items-center">
         <div className="w-11 h-11 bg-slate-50 rounded-full border border-[#5E616A]"></div>
         <div className="flex flex-col gap-2">
@@ -31,6 +32,7 @@ const Menu = () => {
             <MenuItem
               name={item.name}
               secondInfo={item.secondLevel}
+              title={item.title}
               key={item.name}
             />
           );

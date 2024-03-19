@@ -1,4 +1,4 @@
-import Header from "@/widgets/header/header";
+import Header from "@/widgets/header/pub/header";
 import Menu from "@/widgets/menu/pub/menu";
 import { ReactNode } from "react";
 import styles from "./style.module.scss";

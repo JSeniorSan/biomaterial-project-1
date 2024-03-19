@@ -1,0 +1,19 @@
+@use "../../../app/adaptive" as *;
+
+.lab {
+  @apply flex gap-10 p-5 flex-wrap flex-col row-start-2 row-end-3  my-10 rounded-xl text-lg;
+
+  @include xs {
+    @apply col-start-1 col-end-2;
+  }
+
+  @include md {
+    @apply col-start-2 col-end-6;
+  }
+  @include lg {
+    @apply col-start-3 col-end-8;
+  }
+  @include xl {
+    @apply col-start-3 col-end-8;
+  }
+}
