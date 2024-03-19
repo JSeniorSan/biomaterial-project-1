@@ -1,7 +1,8 @@
 .mainLayout {
   display: grid;
-  grid-template-rows: 85px auto;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 85px max-content;
+  grid-template-columns: 1fr minmax(300px, auto) repeat(5, 1fr);
   height: calc(100vh - 85px);
   position: relative;
+  height: 100%;
 }

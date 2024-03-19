@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const MainLab = ({}: {}) => {
+const MainLab = () => {
   return (
     <section className="flex gap-10 p-10  flex-wrap flex-col col-start-3 col-end-7 row-start-2 row-end-3  my-10 rounded-xl text-lg ">
       <h1 className="text-5xl font-bold">Полимеризация стирола в блоке</h1>
@@ -13,7 +13,7 @@ const MainLab = ({}: {}) => {
         alt="Схема реакции полимеризация стирола в блоке"
         width={500}
         height={400}
-        className="rounded shadow-lg "
+        className="rounded shadow-lg"
       />
 
       <h2 className="text-3xl font-light">1. Теоретическая часть</h2>
@@ -47,7 +47,7 @@ const MainLab = ({}: {}) => {
 
       <h2 className="text-3xl font-light">2. Практическая часть</h2>
 
-      <ol className="list-decimal space-y-5 pl-7">
+      <ol className="list-decimal space-y-5 pl-10 ">
         <li>
           Провести полимеризацию стирола в условиях одного из следующих
           вариантов:
