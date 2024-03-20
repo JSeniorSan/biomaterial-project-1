@@ -1,6 +1,7 @@
 export const menuData = [
   {
     name: "Lab 1",
+    title: "Полимеризация стирола в блоке",
     secondLevel: [
       {
         name: "Теоретическая часть",
@@ -12,6 +13,7 @@ export const menuData = [
   },
   {
     name: "Lab 2",
+    title: "Полимеризация стирола в растворе",
     secondLevel: [
       {
         name: "Синтез этанола",
@@ -23,6 +25,7 @@ export const menuData = [
   },
   {
     name: "Lab 3",
+    title: "Полимеризация стирола в блоке",
     secondLevel: [
       {
         name: "Синтез этанола",
@@ -34,6 +37,7 @@ export const menuData = [
   },
   {
     name: "Lab 4",
+    title: "Полимеризация стирола в блоке",
     secondLevel: [
       {
         name: "Синтез этанола",
