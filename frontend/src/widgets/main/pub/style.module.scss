@@ -1,7 +1,7 @@
 @use "../../../app/adaptive" as *;
 
 .lab {
-  @apply flex gap-10 p-5 flex-wrap flex-col row-start-2 row-end-3  my-10 rounded-xl text-lg;
+  @apply flex gap-10 p-5 flex-wrap flex-col row-start-2 row-end-3  my-5 rounded-xl text-lg;
 
   @include xs {
     @apply col-start-1 col-end-2;

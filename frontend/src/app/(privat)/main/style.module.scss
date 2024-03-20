@@ -2,9 +2,9 @@
 
 .mainLayout {
   display: grid;
-  grid-template-rows: 85px max-content;
+  grid-template-rows: 59.5px max-content;
   // grid-template-columns: 1fr minmax(300px, auto) repeat(5, 1fr);
-  height: calc(100vh - 85px);
+  height: calc(100vh - 59.5px);
   position: relative;
   height: 100%;
 
