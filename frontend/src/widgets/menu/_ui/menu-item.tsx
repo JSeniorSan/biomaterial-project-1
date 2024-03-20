@@ -35,14 +35,14 @@ const MenuItem = ({
       <div className="flex font-bold flex-col">
         <div
           className={clsx("flex", {
-            ["text-cyan-400"]:
+            ["text-sky-800"]:
               pathname.split("/")[2] === name.split(" ").join(""),
           })}>
           <Link href={"/main/" + name.split(" ").join("")}>{name}</Link>
           <ChevronRight
             onClick={handleClick}
             className={clsx("transition-all ease-in-out", {
-              ["rotate-90 text-cyan-400"]: menuState,
+              ["rotate-90 text-sky-800"]: menuState,
             })}
           />
         </div>
