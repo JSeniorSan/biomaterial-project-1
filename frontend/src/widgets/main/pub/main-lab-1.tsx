@@ -83,7 +83,7 @@ const MainLab = () => {
         </li>
       </ol>
 
-      <div className="border">{/* table */}</div>
+      <div className="border"></div>
     </section>
   );
 };

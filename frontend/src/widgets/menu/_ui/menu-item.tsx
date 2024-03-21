@@ -36,9 +36,9 @@ const MenuItem = ({
         <div
           className={clsx("flex", {
             ["text-sky-800"]:
-              pathname.split("/")[2] === name.split(" ").join(""),
+              pathname.split("/")[1] === name.split(" ").join(""),
           })}>
-          <Link href={"/main/" + name.split(" ").join("")}>{name}</Link>
+          <Link href={"/" + name.split(" ").join("")}>{name}</Link>
           <ChevronRight
             onClick={handleClick}
             className={clsx("transition-all ease-in-out", {
