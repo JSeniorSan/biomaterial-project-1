@@ -2,6 +2,7 @@
 import { Menu } from "lucide-react";
 import React, { useState } from "react";
 import MenuContent from "./menu-content";
+import { createPortal } from "react-dom";
 
 const HeaderBurgerMenu = () => {
   const [menuState, setMenuState] = useState<boolean>(false);
