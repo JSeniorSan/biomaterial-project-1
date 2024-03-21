@@ -10,7 +10,7 @@ const HeaderBurgerMenu = () => {
     setMenuState(!menuState);
   };
   return (
-    <div className="relative">
+    <div className="relative ">
       <Menu className="md:hidden" size={40} onClick={handleClickMenu} />
       {menuState && <MenuContent setMenuState={setMenuState} />}
     </div>

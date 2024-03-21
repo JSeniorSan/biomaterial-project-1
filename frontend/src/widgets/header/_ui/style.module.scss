@@ -1,10 +1,14 @@
 @use "../../../app/adaptive" as *;
 
 .menuContent {
-  @apply w-44 min-h-52 bg-slate-400 absolute top-11 p-3 rounded -left-7 shadow-2xl flex flex-col gap-5;
+  @apply min-w-[340px] h-[600px]  bg-pink-50 absolute top-11 p-3 rounded -left-7 shadow-2xl flex flex-col gap-5 overflow-y-auto;
 
   @include md {
     @apply hidden;
+  }
+
+  aside {
+    @apply flex flex-col static;
   }
 }
 

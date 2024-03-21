@@ -46,7 +46,7 @@ const MenuItem = ({
             })}
           />
         </div>
-        <span className="text-sm text-gray-100 opacity-50">{title}</span>
+        <span className="text-sm text-gray-500">{title}</span>
       </div>
       {menuState && (
         <div className="flex flex-col gap-3 pl-5 border-l-2 border-gray-500">
