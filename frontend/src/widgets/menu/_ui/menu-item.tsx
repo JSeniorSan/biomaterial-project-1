@@ -35,18 +35,21 @@ const MenuItem = ({
       <div className="flex font-bold flex-col">
         <div
           className={clsx("flex", {
-            ["text-sky-800"]:
+            ["text-[var(--active-state-menu-color)]"]:
               pathname.split("/")[1] === name.split(" ").join(""),
           })}>
           <Link href={"/" + name.split(" ").join("")}>{name}</Link>
           <ChevronRight
             onClick={handleClick}
             className={clsx("transition-all ease-in-out", {
-              ["rotate-90 text-sky-800"]: menuState,
+              ["rotate-90 md:text-[var(--foreground)] sm:text-[var(--active-state-menu-color)]"]:
+                menuState,
             })}
           />
         </div>
-        <span className="text-sm text-gray-500">{title}</span>
+        <span className="text-sm font-light sm:text-[var(--menu-text-color)] md:text-[var(--foreground)]">
+          {title}
+        </span>
       </div>
       {menuState && (
         <div className="flex flex-col gap-3 pl-5 border-l-2 border-gray-500">
