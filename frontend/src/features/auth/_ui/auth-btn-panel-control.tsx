@@ -13,13 +13,9 @@ const AuthBtnPanelControl = () => {
             Вход
           </Button>
         </div>
-
-        <p className="text-[#090213] dark:text-[#F3ECC8]">Не помню пароль</p>
-      </div>
-      <div className="flex flex-col justify-center items-center gap-4">
-        <Link href="/new-user">
+        <Link href={"/"}>
           <p className="text-[#090213] dark:text-[#F3ECC8]">
-            Нет учетной записи?
+            Не помню пароль...
           </p>
         </Link>
       </div>

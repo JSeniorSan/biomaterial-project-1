@@ -13,9 +13,11 @@ const MenuContent = ({ setMenuState }: { setMenuState: MenuContentType }) => {
   };
   return (
     <section className={styles.menuContent}>
-      <X onClick={handleCloseMenu} />
-      <div className="flex flex-col gap-2 text-lg pl-5 font-medium">
-        <Link href={"/"}>Exit</Link>
+      <X onClick={handleCloseMenu} className={styles.closeMenu} />
+      <div className={styles.menuSections}>
+        <Link href={"/"} className={styles.backMain}>
+          Выйти на главную
+        </Link>
         <Menu />
       </div>
     </section>

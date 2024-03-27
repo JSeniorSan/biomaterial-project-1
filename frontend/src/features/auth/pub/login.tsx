@@ -46,14 +46,12 @@ const Login = () => {
                   name="login"
                   render={({ field }) => (
                     <FormItem className="pt-4">
-                      <FormLabel className="text-[#1B2B1B] font-bold">
-                        Логин
-                      </FormLabel>
+                      <FormLabel className="font-bold">Логин</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Логин..."
                           {...field}
-                          className="bg-white"
+                          className="bg-[var(--input-bg)]"
                         />
                       </FormControl>
 
@@ -66,14 +64,12 @@ const Login = () => {
                   name="password"
                   render={({ field }) => (
                     <FormItem className="pt-4">
-                      <FormLabel className="text-[#1B2B1B] font-bold">
-                        Пароль
-                      </FormLabel>
+                      <FormLabel className="font-bold">Пароль</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Пароль..."
                           {...field}
-                          className="bg-white "
+                          className="bg-[var(--input-bg)]"
                         />
                       </FormControl>
 

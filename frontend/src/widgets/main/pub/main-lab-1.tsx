@@ -4,7 +4,12 @@ import styles from "./style.module.scss";
 const MainLab = () => {
   return (
     <section className={styles.lab}>
-      <h1 className="text-3xl font-bold ">Полимеризация стирола в блоке</h1>
+      <div className="flex gap-10 items-baseline md:flex-row flex-col">
+        <h1 className="text-3xl font-bold">Полимеризация стирола в блоке</h1>
+        <button className="p-5 text-lg font-semibold text-white bg-[var(--active-state-menu-color)] rounded-2xl w-fit text-center hover:bg-[var(--header-bg-color)] shadow-lg transition-colors ease-in-out">
+          Сдать работу
+        </button>
+      </div>
 
       <label className="text-xl">Схема химической реакции:</label>
 
