@@ -8,7 +8,7 @@ export default function HomePage() {
       </h1>
 
       <Login />
-      <Link href="/Lab1" className="text-white p-4 rounded-lg bg-rose-400 ">
+      <Link href="/1" className="text-white p-4 rounded-lg bg-rose-400 ">
         Перейти на главную
       </Link>
     </section>

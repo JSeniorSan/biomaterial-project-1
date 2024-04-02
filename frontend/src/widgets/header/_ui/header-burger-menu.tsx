@@ -1,16 +1,18 @@
 "use client";
 import { Menu } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuContent from "./menu-content";
 
 const HeaderBurgerMenu = () => {
   const [menuState, setMenuState] = useState<boolean>(false);
 
-  if (menuState) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "unset";
-  }
+  useEffect(() => {
+    if (menuState) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [menuState]);
 
   const handleClickMenu = () => {
     setMenuState(!menuState);

@@ -4,9 +4,9 @@ import { TheoryInterface } from "../model/types";
 
 const TheoryContent = ({ theoryData }: { theoryData: TheoryInterface }) => {
   return (
-    <div key={theoryData.id}>
+    <>
       <h2 className="text-2xl font-light" id="Теоретическая часть">
-        {theoryData.title}
+        {theoryData?.title}
       </h2>
       <div className="flex flex-col gap-5">
         {theoryData.info_block.map((content) => {
@@ -21,7 +21,7 @@ const TheoryContent = ({ theoryData }: { theoryData: TheoryInterface }) => {
           return <p key={content.id}>{content.value}</p>;
         })}
       </div>
-    </div>
+    </>
   );
 };
 
