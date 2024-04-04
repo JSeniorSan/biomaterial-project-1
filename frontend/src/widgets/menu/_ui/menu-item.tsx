@@ -1,36 +1,26 @@
 "use client";
+
+import { Card } from "@/shared/ui/card";
 import clsx from "clsx";
-import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { MouseEventHandler, useState } from "react";
+import React from "react";
 
 const MenuItem = ({ id, title }: { id: number; title: string }) => {
-  // const [menuState, setMenuState] = useState<boolean>(false);
   const pathname = usePathname();
 
-  // const handleClick: MouseEventHandler<SVGElement> = (e) => {
-  //   e.stopPropagation();
-  //   setMenuState(!menuState);
-  // };
-
-  // const handleClickNavigateTo = (name: string) => {
-  //   document.getElementById(name)?.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "center",
-  //     inline: "nearest",
-  //   });
-  // };
-
   return (
-    <div className="flex font-bold flex-col h-fit rounded-xl p-2 max-w-52  flex-wrap bg-[var(--active-state-menu-color)] hover:bg-gray-300 hover:scale-x-105 transition-all ease-in-out ">
-      <div
-        className={clsx("flex w-full text-center text-white", {
-          ["text-gray-500"]: Number(pathname.at(-1)) === id,
-        })}>
-        <Link href={"/" + id}>{title}</Link>
-      </div>
-    </div>
+    <Card
+      className={clsx(
+        "flex text-center text-white bg-[var(--active-state-menu-color)]  w-52 text-pretty p-3 flex-nowrap hover:scale-x-105 transition-all ease-in-out shadow-lg hover:bg-gray-400 text-ellipsis",
+        {
+          ["text-white"]: Number(pathname.at(-1)) === id,
+        }
+      )}>
+      <Link href={"/" + id} className="text-ellipsis w-full">
+        {title}
+      </Link>
+    </Card>
   );
 };
 

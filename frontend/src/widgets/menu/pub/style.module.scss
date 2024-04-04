@@ -1,12 +1,4 @@
 @use "../../../app/adaptive" as *;
 .menu {
-  @apply h-fit hidden md:flex md:flex-col md:items-start md:p-5 gap-7 row-start-2 row-end-3 fixed mt-8 md:col-start-1 md:col-end-2 text-[var(--menu-text-color)];
-
-  @include md {
-    @apply text-[var(--foreground)];
-  }
-
-  @include lg {
-    @apply col-start-2 col-end-7;
-  }
+  @apply hidden  md:flex md:flex-col md:items-start md:fixed p-3 gap-7 md:row-start-2 mt-8 md:col-start-1 md:col-end-2 text-[var(--menu-text-color)] md:text-[var(--foreground)] lg:col-start-2 lg:col-end-7 w-fit;
 }

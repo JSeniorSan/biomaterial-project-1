@@ -18,7 +18,7 @@ const HeaderBurgerMenu = () => {
     setMenuState(!menuState);
   };
   return (
-    <div className="relative text-[var(--text-header)]">
+    <div className="text-[var(--text-header)]">
       <Menu className="md:hidden" size={40} onClick={handleClickMenu} />
       {menuState && <MenuContent setMenuState={setMenuState} />}
     </div>
