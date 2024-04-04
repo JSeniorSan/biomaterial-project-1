@@ -10,20 +10,20 @@ const MenuControlPanel = () => {
       inline: "nearest",
     });
   };
+
   return (
-    <div className="flex flex-col gap-3 justify-center">
-      <b className="align-self-center ">Навигация по странице:</b>
+    <div className="flex flex-col gap-3 justify-center col-start-7 col-end-8">
+      <b className="align-self-center  text-xl">Навигация:</b>
       <div
         onClick={() => handleClickNavigateTo("Теоретическая часть")}
-        className="cursor-pointer hover:text-[var(--menu-text-color)] transition-all ease-in-out ">
+        className="cursor-pointer hover:text-[var(--menu-text-color)] transition-all ease-in-out underline">
         Теоретическая часть
       </div>
       <div
         onClick={() => handleClickNavigateTo("Практическая часть")}
-        className="cursor-pointer hover:text-[var(--menu-text-color)] transition-all ease-in-out">
+        className="cursor-pointer hover:text-[var(--menu-text-color)] transition-all ease-in-out underline">
         Практическая часть
       </div>
-      <div>Выводы</div>
     </div>
   );
 };

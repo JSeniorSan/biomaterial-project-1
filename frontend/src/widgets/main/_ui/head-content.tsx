@@ -9,15 +9,12 @@ const HeadContent = ({
 }) => {
   return (
     <div>
-      <div className="flex gap-10 items-baseline md:flex-row flex-col">
+      <div className="flex gap-10 items-baseline md:flex-row flex-col mb-4">
         <h1 className="text-3xl font-bold">{page_title}</h1>
-        <button className="p-5 text-lg font-semibold text-white bg-[var(--active-state-menu-color)] rounded-2xl w-fit text-center hover:bg-[var(--header-bg-color)] shadow-lg transition-all ease-in-out hover:scale-x-105">
-          Сдать работу
-        </button>
       </div>
       {chema && (
-        <>
-          <label className="text-xl">Схема химической реакции:</label>
+        <div className="flex flex-col gap-4">
+          <div className="text-xl">Схема химической реакции:</div>
           <Image
             src={chema}
             alt={page_title}
@@ -25,7 +22,7 @@ const HeadContent = ({
             width={400}
             height={300}
           />
-        </>
+        </div>
       )}
     </div>
   );
