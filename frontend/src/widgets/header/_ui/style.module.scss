@@ -8,10 +8,10 @@
     @apply cursor-pointer absolute left-1 top-5  w-8 h-8 text-[var(--menu-text-color)];
   }
   .menuSections {
-    @apply flex flex-col gap-2 text-lg font-medium overflow-y-scroll h-screen pb-10 px-6 md:pb-20;
+    @apply flex flex-col gap-2 text-lg font-medium overflow-y-scroll h-screen pb-10 px-6;
 
     .backMain {
-      @apply p-3 rounded-md bg-[var(--active-state-menu-color)] w-fit mt-8;
+      @apply p-3 rounded-md bg-[var(--active-state-menu-color)] w-fit mt-8 self-center;
     }
 
     aside {

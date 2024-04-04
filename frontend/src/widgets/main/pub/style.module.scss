@@ -8,12 +8,12 @@
   }
 
   @include md {
-    @apply col-start-2 col-end-6;
+    @apply col-start-2 col-end-8;
   }
   @include lg {
     @apply col-start-3 col-end-8;
   }
   @include xl {
-    @apply col-start-3 col-end-7;
+    @apply col-start-3 col-end-8;
   }
 }

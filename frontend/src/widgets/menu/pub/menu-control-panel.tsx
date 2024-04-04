@@ -1,5 +1,7 @@
 "use client";
 
+import { Badge } from "@/shared/ui/badge";
+import { motion } from "framer-motion";
 import React from "react";
 
 const MenuControlPanel = () => {
@@ -12,19 +14,26 @@ const MenuControlPanel = () => {
   };
 
   return (
-    <div className="flex flex-col gap-3 justify-center col-start-7 col-end-8">
+    <motion.div
+      className="flex flex-col gap-3 justify-center "
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      id="control">
       <b className="align-self-center  text-xl">Навигация:</b>
-      <div
+      <Badge
         onClick={() => handleClickNavigateTo("Теоретическая часть")}
-        className="cursor-pointer hover:text-[var(--menu-text-color)] transition-all ease-in-out underline">
+        variant={"outline"}
+        className="text-lg cursor-pointer">
         Теоретическая часть
-      </div>
-      <div
+      </Badge>
+      <Badge
+        variant={"outline"}
         onClick={() => handleClickNavigateTo("Практическая часть")}
-        className="cursor-pointer hover:text-[var(--menu-text-color)] transition-all ease-in-out underline">
+        className="text-lg cursor-pointer">
         Практическая часть
-      </div>
-    </div>
+      </Badge>
+    </motion.div>
   );
 };
 
