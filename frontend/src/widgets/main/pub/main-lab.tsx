@@ -38,7 +38,7 @@ const MainLab = () => {
         />
 
         <TheoryContent theoryData={THEORY_PAGE_DATA[path - 1]} />
-        <Divider />
+        <Divider className="dark:bg-white" />
         <PracticeContent title={PRACTICE_PAGE_DATA[path - 1]?.title} />
       </motion.section>
     </AnimatePresence>

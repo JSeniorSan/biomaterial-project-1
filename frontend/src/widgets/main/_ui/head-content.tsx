@@ -12,10 +12,12 @@ const HeadContent = ({
 
   return (
     <Space direction="vertical" size={16}>
-      <Title>{page_title}</Title>
+      <Title className="dark:text-white">{page_title}</Title>
       {chema && (
         <div className="flex flex-col gap-4">
-          <Title level={3}>Схема химической реакции:</Title>
+          <Title level={3} className="dark:text-white">
+            Схема химической реакции:
+          </Title>
           <Image
             src={chema}
             alt={page_title}
