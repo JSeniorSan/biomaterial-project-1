@@ -1,7 +1,7 @@
 export const THEORY_PAGE_DATA = [
   {
     id: 1,
-    title: "Теоретическа часть",
+    title: "Теоретическая часть",
     info_block: [
       {
         id: 1,

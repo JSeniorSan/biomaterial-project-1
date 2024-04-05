@@ -1,4 +1,4 @@
 @use "../../../app/adaptive" as *;
 .menu {
-  @apply hidden  md:flex md:flex-col md:items-start md:fixed gap-5 md:row-start-2 md:col-start-1 md:col-end-2 text-[var(--menu-text-color)] md:text-[var(--foreground)] lg:col-start-2 lg:col-end-7 w-fit md:h-screen md:overflow-y-scroll py-8 px-10;
+  @apply hidden  md:flex md:flex-col md:items-start md:fixed gap-5 md:row-start-2 md:col-start-1 md:col-end-2 text-[var(--menu-text-color)] md:text-[var(--foreground)] lg:col-start-2 lg:col-end-7 w-[330px] md:h-screen py-12 px-10;
 }
