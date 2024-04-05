@@ -37,13 +37,17 @@ const AppMenu = () => {
         <MenuSearch setQuery={setQuery} query={query} />
         <List
           size="small"
-          header={<Title level={4}>Список лабораторных работ</Title>}
+          header={
+            <Title level={4} className="dark:text-white">
+              Список работ
+            </Title>
+          }
           bordered
           dataSource={filterValue}
           renderItem={(item, i) => (
             <List.Item
               className={clsx(
-                "hover:bg-[var(--active-state-menu-color)] transition-all ease-in-out cursor-pointer",
+                "hover:bg-[var(--active-state-menu-color)] transition-all ease-in-out cursor-pointer dark:text-white",
                 {
                   ["bg-[var(--active-state-menu-color)] text-white"]:
                     Number(pathname.at(-1)) === i + 1,
