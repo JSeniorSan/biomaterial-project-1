@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 import styles from "./style.module.scss";
 import React from "react";
 import Link from "next/link";
-import Menu from "@/widgets/menu/pub/menu";
+import Menu from "@/widgets/menu/pub/app-menu";
 
 type MenuContentType = (value: boolean) => void;
 

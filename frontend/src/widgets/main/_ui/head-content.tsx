@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Space, Typography } from "antd";
 const HeadContent = ({
   page_title,
   chema,
@@ -7,24 +8,25 @@ const HeadContent = ({
   page_title: string;
   chema?: string;
 }) => {
+  const { Title } = Typography;
+
   return (
-    <div>
-      <div className="flex gap-10 items-baseline md:flex-row flex-col mb-4">
-        <h1 className="text-3xl font-bold">{page_title}</h1>
-      </div>
+    <Space direction="vertical" size={16}>
+      <Title>{page_title}</Title>
       {chema && (
         <div className="flex flex-col gap-4">
-          <div className="text-xl">Схема химической реакции:</div>
+          <Title level={3}>Схема химической реакции:</Title>
           <Image
             src={chema}
             alt={page_title}
-            className="rounded shadow-lg"
             width={400}
-            height={300}
+            height={200}
+            placeholder={"blur"}
+            blurDataURL={chema}
           />
         </div>
       )}
-    </div>
+    </Space>
   );
 };
 

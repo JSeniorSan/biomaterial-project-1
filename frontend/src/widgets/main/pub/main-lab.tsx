@@ -11,6 +11,7 @@ import {
 import PracticeContent from "../_ui/practice-content";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import { Divider } from "antd";
 const MainLab = () => {
   const pathname = usePathname();
   const [path, setPath] = useState<number>(0);
@@ -37,6 +38,7 @@ const MainLab = () => {
         />
 
         <TheoryContent theoryData={THEORY_PAGE_DATA[path - 1]} />
+        <Divider />
         <PracticeContent title={PRACTICE_PAGE_DATA[path - 1]?.title} />
       </motion.section>
     </AnimatePresence>
