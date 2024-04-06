@@ -53,7 +53,7 @@ const AppMenu = () => {
                     Number(pathname.at(-1)) === i + 1,
                 }
               )}>
-              <Link href={"/" + (i + 1)} className="hover:text-black">
+              <Link href={"/lab_" + (i + 1)} className="hover:text-black">
                 {item}
               </Link>
             </List.Item>
