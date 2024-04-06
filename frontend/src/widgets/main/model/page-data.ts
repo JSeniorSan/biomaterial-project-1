@@ -181,6 +181,7 @@ export const PRACTICE_PAGE_DATA = [
     info_block: [
       {
         id: 1,
+        type: "list",
         value: {
           title:
             "Провести полимеризацию стирола в условиях одного из следующих вариантов:",
@@ -195,6 +196,7 @@ export const PRACTICE_PAGE_DATA = [
       },
       {
         id: 2,
+        type: "list",
         value: {
           title: "В каждой пробирке определить:",
           list: [
@@ -207,6 +209,7 @@ export const PRACTICE_PAGE_DATA = [
       },
       {
         id: 3,
+        type: "list",
         value: {
           title:
             "Полученные результаты занести в табл. 1 и построить графики зависимости скорости полимеризации и молекулярной массы от исследуемого фактора.",
@@ -236,7 +239,6 @@ export const PRACTICE_PAGE_DATA = [
             "Провести полимеризацию стирола при 80 °С в течение 4 ч в присутствии 3 мас. % (от мономера) перокисида бензоила или динитрил-азо-бис-изомаслянной кислоты, добавляя в пробирки толуол: в первую - 1 мл, во вторую - 2 мл, в третью - 3 мл и в четвертую - 4 мл.",
           list: [],
         },
-
         pic: null,
       },
       {
@@ -330,3 +332,86 @@ export const LAB_TITLE = [
 ];
 
 export const TABLE_PAGE_DATA = [];
+
+// New
+
+export interface LiItem {
+  title: string;
+  list: string[];
+}
+
+export interface PracticeListItemInterface {
+  type: "list" | "text" | "picture";
+  id: number;
+  list_value: LiItem[];
+}
+
+export interface PracticeTextInterface
+  extends Omit<PracticeListItemInterface, "list_value"> {
+  value: "";
+}
+
+export type TextOrList = PracticeTextInterface | PracticeListItemInterface;
+
+// Test
+
+const LAB_PRACTICE_CONTENT_1: TextOrList[] = [
+  {
+    id: 1,
+    type: "list",
+    list_value: [
+      {
+        title:
+          "Провести полимеризацию стирола в условиях одного из следующих вариантов:",
+        list: [
+          "Tемпература 60, 70, 80 и 90 °С, количество инициатора 0,5 мас. % (от мономера); продолжительность 4 ч;",
+          "Температура 80 °С; количество инициатора 0,1; 0,3; 0,5 и 0.7мас. % (от мономера); продолжительность 3 или 4 ч;",
+          "Температура 80 °С; количество инициатора 0,5 мас. % (от мономера); продолжительность 1, 2, 3 и 4 ч.",
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    type: "list",
+    list_value: [
+      {
+        title: "В каждой пробирке определить:",
+        list: [
+          "Выход полимера (в г и %);",
+          "Скорость полимеризации [в %/ч или %/мин и в моль/(л·с)];",
+          "Молекулярную массу полимера вязкозиметрическим методом (см. работу 3).",
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    type: "list",
+    list_value: [
+      {
+        title:
+          "Полученные результаты занести в табл. 1 и построить графики зависимости скорости полимеризации и молекулярной массы от исследуемого фактора.",
+        list: [],
+      },
+    ],
+  },
+  {
+    id: 4,
+    type: "list",
+    list_value: [
+      {
+        title:
+          "Сделать выводы о влиянии исследуемого фактора на процесс полимеризаци мономера.",
+        list: [],
+      },
+    ],
+  },
+];
+
+// export const LABS = [
+//   {
+//     id: 1,
+//     content:
+//   }
+// ]
