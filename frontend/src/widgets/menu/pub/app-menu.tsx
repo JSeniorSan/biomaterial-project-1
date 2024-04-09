@@ -24,7 +24,9 @@ const AppMenu = () => {
 
   const filterValue = useMemo(() => {
     if (!query) return menuData.map((item) => item.title);
-    return menuList?.filter((item) => item.includes(query));
+    return menuList?.filter((item) =>
+      item.toLowerCase().includes(query.toLowerCase())
+    );
   }, [query, menuList]);
 
   return (
@@ -47,7 +49,7 @@ const AppMenu = () => {
           renderItem={(item, i) => (
             <List.Item
               className={clsx(
-                "hover:bg-[var(--active-state-menu-color)] transition-all ease-in-out cursor-pointer dark:text-white",
+                "hover:bg-[var(--active-state-menu-color)] last:rounded-b-lg transition-all ease-in-out cursor-pointer dark:text-white",
                 {
                   ["bg-[var(--active-state-menu-color)] text-white"]:
                     Number(pathname.at(-1)) === i + 1,
