@@ -72,7 +72,7 @@ const Lab_1 = () => {
                   level={2}
                   id="Практическая часть"
                   className="dark:text-white">
-                  Практическая часть
+                  <pre>Практическая часть</pre>
                 </Title>
                 <Image
                   src="/Lab1and2pic1.svg"
@@ -110,7 +110,7 @@ const Lab_1 = () => {
                   чашках Петри на воздухе до постоянной массы.
                 </Paragraph>
                 <Title level={3} className="dark:text-white">
-                  Задание:
+                  <pre>Задание:</pre>
                 </Title>
                 <Paragraph className="dark:text-white">
                   <Space direction="vertical" size={16}>
