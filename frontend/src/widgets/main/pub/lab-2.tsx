@@ -102,7 +102,7 @@ const Lab_2 = () => {
                   чашках Петри на воздухе до постоянной массы.
                 </Paragraph>
                 <Title level={3} className="dark:text-white">
-                  Задание:
+                  <pre>Задание:</pre>
                 </Title>
                 <Paragraph className="dark:text-white">
                   <Space direction="vertical" size={16}>
