@@ -2,9 +2,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import styles from "./style.module.scss";
-import { Card, Divider, Space, Typography } from "antd";
+import { Button, Card, Divider, Space, Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
+import Table_2 from "@/app/(privat)/table2/_table";
 
 const Lab_1 = () => {
   const { Title, Paragraph, Text } = Typography;
@@ -161,6 +162,8 @@ const Lab_1 = () => {
                   </Space>
                 </Paragraph>
               </Card>
+              <Table_2 />
+              <Button>Сдать работу</Button>
             </Space>
           </Space>
         </Typography>
