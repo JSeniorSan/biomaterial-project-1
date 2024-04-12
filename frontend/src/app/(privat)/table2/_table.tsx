@@ -1,19 +1,42 @@
 "use client";
 import { Column, useTable } from "react-table";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TableCell from "../table/_table-cell";
+import { Button } from "antd";
 
-// type Column<Data> =
-//   | {
-//       Header: string;
-//       accessor: keyof Data;
-//     }
-//   | {
-//       Header: string;
-//       columns: Column<Data>[];
-//     };
+function createInitialRow(id: number) {
+  return {
+    id: id,
+    monomer: {
+      g: "",
+      mole: "",
+      mole_l: "",
+    },
+    initiator: {
+      g: "",
+      mole: "",
+      mole_g: "",
+    },
+    temperature: "",
+    time: "",
+    convertion: {
+      g: "",
+      percent: "",
+    },
+    polymerization: {
+      percent_time: "",
+      mole_ls: "",
+    },
+    characterization: {
+      n: "",
+      MM: "",
+    },
+  };
+}
 
-interface Data {
+export type TProps = { row: string; column: string };
+
+export interface Data {
   id: number;
   monomer: {
     g: string;
@@ -41,100 +64,20 @@ interface Data {
   };
 }
 
-const data: Data[] = [
-  {
-    id: 1,
-    monomer: {
-      g: "10",
-      mole: "5",
-      mole_l: "2",
-    },
-    initiator: {
-      g: "1",
-      mole: "2",
-      mole_g: "7",
-    },
-    temperature: "dsf",
-    time: "10",
-    convertion: {
-      g: "100",
-      percent: "30",
-    },
-    polymerization: {
-      percent_time: "3",
-      mole_ls: "10",
-    },
-    characterization: {
-      n: "32",
-      MM: "342",
-    },
-  },
-  {
-    id: 2,
-    monomer: {
-      g: "10",
-      mole: "5",
-      mole_l: "2",
-    },
-    initiator: {
-      g: "1",
-      mole: "2",
-      mole_g: "7",
-    },
-    temperature: "dsf",
-    time: "10",
-    convertion: {
-      g: "100",
-      percent: "30",
-    },
-    polymerization: {
-      percent_time: "3",
-      mole_ls: "10",
-    },
-    characterization: {
-      n: "32",
-      MM: "342",
-    },
-  },
-  {
-    id: 3,
-    monomer: {
-      g: "10",
-      mole: "5",
-      mole_l: "2",
-    },
-    initiator: {
-      g: "1",
-      mole: "2",
-      mole_g: "7",
-    },
-    temperature: "dsf",
-    time: "10",
-    convertion: {
-      g: "100",
-      percent: "30",
-    },
-    polymerization: {
-      percent_time: "3",
-      mole_ls: "10",
-    },
-    characterization: {
-      n: "32",
-      MM: "342",
-    },
-  },
-];
-
 const Table_2 = () => {
-  const [editRowId, setEditRowId] = React.useState<string>("");
-  const [dataState, setDataState] = useState(() => [...data]);
+  const [editId, setEditId] = React.useState<TProps>({ row: "", column: "" });
+  const [myData, setMyData] = useState<Data[]>([]);
 
-  const handleBlur = () => {
-    setEditRowId("");
+  useEffect(() => {
+    console.log(myData);
+  }, [myData]);
+
+  const handleEditClick = (cellId: TProps) => {
+    setEditId(cellId);
   };
 
-  const handleEditClick = (rowId: string) => {
-    setEditRowId(rowId);
+  const handleAddNewRow = () => {
+    setMyData((old) => [...old, createInitialRow(old.length + 1)]);
   };
 
   const columns: Column<Data>[] = React.useMemo(
@@ -147,15 +90,15 @@ const Table_2 = () => {
         Header: "Мономер",
         columns: [
           {
-            Header: "г",
+            Header: "г(1)",
             accessor: "monomer.g",
           },
           {
-            Header: "моль",
+            Header: "моль(1)",
             accessor: "monomer.mole",
           },
           {
-            Header: "моль/л",
+            Header: "моль/л(1)",
             accessor: "monomer.mole_l",
           },
         ],
@@ -164,15 +107,15 @@ const Table_2 = () => {
         Header: "Инициатор",
         columns: [
           {
-            Header: "г",
+            Header: "г(2)",
             accessor: "initiator.g",
           },
           {
-            Header: "моль",
+            Header: "моль(2)",
             accessor: "initiator.mole",
           },
           {
-            Header: "моль/г",
+            Header: "моль/г(2)",
             accessor: "initiator.mole_g",
           },
         ],
@@ -213,6 +156,7 @@ const Table_2 = () => {
       },
       {
         Header: "Характеристики полимеров",
+
         columns: [
           {
             Header: "[η]",
@@ -229,13 +173,13 @@ const Table_2 = () => {
   );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data });
+    useTable({ columns, data: myData });
 
   return (
-    <div className="xl:w-[770px] lg:w-[450px] md:w-[400px] sm:w-[450px] w-[250px] overflow-hidden overflow-x-scroll border shadow-lg bg-gradient-to-tr from-slate-500/65 to-blue-950/40  p-3 dark:text-white/80 rounded ">
+    <div className="xl:w-[770px] lg:w-[450px] md:w-[400px] sm:w-[450px] w-[300px] overflow-hidden overflow-x-scroll border shadow-lg dark:bg-gradient-to-tr dark:from-slate-500/65 dark:to-blue-950/40 p-3 dark:text-white/80 rounded bg-gradient-to-tr from-cyan-700/30 to-indigo-400/50 text-neutral-600 ">
       <table
         {...getTableProps()}
-        className="border border-collapse bg-opacity-50 backdrop-blur-md bg-slate-700/45">
+        className="border border-collapse bg-opacity-50 dark:backdrop-blur-md dark:bg-slate-700/45 ">
         <caption>Таблица 1</caption>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -268,13 +212,21 @@ const Table_2 = () => {
                       {...cell.getCellProps()}
                       key={cell.column.id}
                       className="border"
-                      onClick={() => handleEditClick(cell.column.id)}
-                      onBlur={handleBlur}>
-                      {cell.column.id === editRowId ? (
-                        <TableCell getValue={cell.value} />
-                      ) : (
-                        cell.render("Cell")
-                      )}
+                      onClick={() =>
+                        handleEditClick({
+                          row: cell.row.id,
+                          column: cell.column.id,
+                        })
+                      }>
+                      {
+                        <TableCell
+                          rowId={row.id}
+                          getValue={cell.value}
+                          editId={editId}
+                          setMyData={setMyData}
+                          setEditId={setEditId}
+                        />
+                      }
                     </td>
                   );
                 })}
@@ -283,6 +235,7 @@ const Table_2 = () => {
           })}
         </tbody>
       </table>
+      <Button onClick={handleAddNewRow}>Add new row</Button>
     </div>
   );
 };

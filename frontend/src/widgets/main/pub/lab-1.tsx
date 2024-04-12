@@ -6,9 +6,15 @@ import { Button, Card, Divider, Space, Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import Table_2 from "@/app/(privat)/table2/_table";
+import { useRouter } from "next/navigation";
 
 const Lab_1 = () => {
   const { Title, Paragraph, Text } = Typography;
+  const router = useRouter();
+
+  const handeleDoneWork = () => {
+    router.push("/");
+  };
   return (
     <AnimatePresence>
       <motion.section
@@ -161,9 +167,10 @@ const Lab_1 = () => {
                     </ol>
                   </Space>
                 </Paragraph>
+                <Table_2 />
               </Card>
-              <Table_2 />
-              <Button>Сдать работу</Button>
+
+              <Button onClick={handeleDoneWork}>Сдать работу</Button>
             </Space>
           </Space>
         </Typography>
