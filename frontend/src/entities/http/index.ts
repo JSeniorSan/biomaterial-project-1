@@ -21,7 +21,7 @@ $api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
     if (
-      error.response.status == 401 &&
+      error.response.status == 403 &&
       error.config &&
       !error.config._isRetry
     ) {
@@ -30,37 +30,15 @@ $api.interceptors.response.use(
         const refreshToken = localStorage.getItem("refreshToken");
         const response = await axios.post<LoginResponseType>(
           `${API_URL}/auth/refresh`,
-          null,
-
+          `grant_type=&refresh_token=${refreshToken}&scope=&client_id=&client_secret=`,
           {
             headers: {
-              refresh_token: refreshToken,
+              "content-type": "application/x-www-form-urlencoded",
             },
             withCredentials: true,
           }
         );
-        // const response = await axios.post<LoginResponseType>(
-        //   `${API_URL}/auth/refresh`,
-        //   null,
-        //   {
-        //     headers: {
-        //       Authorization: `Bearer ${refreshToken}`,
-        //     },
-        //     withCredentials: true,
-        //   }
-        // );
-        // if (refreshToken) {
-        //   const response = await fetch(`${API_URL}/auth/refresh`, {
-        //     method: "POST",
-        //     headers: {
-        //       refresh_token: refreshToken,
-        //     },
-        //     w
-        //   });
 
-        // }
-        // const data = await response.json();
-        console.log("refresh response", response);
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("refreshToken", response.data.refresh_token);
         return $api.request(originalRequest);

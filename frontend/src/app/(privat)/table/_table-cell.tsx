@@ -2,9 +2,19 @@
 
 import { Input } from "antd";
 import React, { useEffect, useState } from "react";
-import { Data, TProps } from "../table2/_table";
+import { RootTableData, TProps } from "../table2/_table";
 
-type TDataProps = (value: (val: Data[]) => Array<Data>) => void;
+type TDataProps = (
+  value: (val: RootTableData[]) => Array<RootTableData>
+) => void;
+
+export interface CellProps {
+  rowId: number;
+  getValue: string;
+  setMyData: TDataProps;
+  editId: TProps;
+  setEditId: (val: { row: string; column: string }) => void;
+}
 
 const TableCell = ({
   rowId,
@@ -12,28 +22,26 @@ const TableCell = ({
   setMyData,
   editId,
   setEditId,
-}: {
-  rowId: string;
-  getValue: string;
-  setMyData: TDataProps;
-  editId: TProps;
-  setEditId: (val: { row: string; column: string }) => void;
-}) => {
-  const [value, setValue] = useState<string>("");
+}: CellProps) => {
+  const [value, setValue] = useState<number>(0);
 
   useEffect(() => {
-    setValue(getValue);
+    setValue(Number(getValue));
   }, [getValue]);
 
   const handleBlur = () => {
     console.log("saveData");
     setEditId({ row: "", column: "" });
-    setMyData((old: Data[]) => {
+    setMyData((old: RootTableData[]) => {
       const columnIdStr = editId.column;
+
       return old.map((dataObj) => {
-        if (dataObj.id !== Number(rowId)) {
+        if (dataObj.number !== rowId + 1) {
+          console.log("dataObj.number", dataObj.number);
+          console.log("Number(rowId)", rowId);
           return dataObj;
         }
+        console.log("меняем", { ...dataObj, [columnIdStr]: value });
         return { ...dataObj, [columnIdStr]: value };
       });
     });
@@ -42,8 +50,9 @@ const TableCell = ({
   return (
     <Input
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={(e) => setValue(Number(e.target.value))}
       onBlur={handleBlur}
+      type="number"
       className="rounded-none"
     />
   );

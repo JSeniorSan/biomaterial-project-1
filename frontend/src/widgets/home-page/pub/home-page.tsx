@@ -19,7 +19,7 @@ export default function HomePage() {
   }, []);
 
   if (isAuth) {
-    router.push("/");
+    router.push("/lab_1");
   }
 
   return (
@@ -28,10 +28,11 @@ export default function HomePage() {
         Лабораторные кафедры биоматериалов
       </h1>
       {!isAuth && "Вы не авторизованы"}
+      {isAuth && "Вы авторизованы"}
       <Login />
-      <Link href="/lab_1" className="text-white p-4 rounded-lg bg-rose-400 ">
+      {/* <Link href="/lab_1" className="text-white p-4 rounded-lg bg-rose-400 ">
         Перейти на главную
-      </Link>
+      </Link> */}
     </section>
   );
 }

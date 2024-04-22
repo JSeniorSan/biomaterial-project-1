@@ -4,69 +4,77 @@ import React, { useEffect, useState } from "react";
 import TableCell from "../table/_table-cell";
 import { Button } from "antd";
 
+export interface RootTableData {
+  number: number;
+  load_monomer_g: number;
+  load_monomer_mole: number;
+  load_monomer_mole_g: number;
+  load_initiator_g: number;
+  load_initiator_mole: number;
+  load_initiator_mole_g: number;
+  temperature: number;
+  time: number;
+  polymer_yield_g: number;
+  polymer_yield_percent: number;
+  polymerization_rate_percent: number;
+  polymerization_rate_mole: number;
+  polymer_characteristics_viscosity: number;
+  polymer_characteristics_mol_mass: number;
+}
+
 function createInitialRow(id: number) {
   return {
-    id: id,
-    monomer: {
-      g: "",
-      mole: "",
-      mole_l: "",
-    },
-    initiator: {
-      g: "",
-      mole: "",
-      mole_g: "",
-    },
-    temperature: "",
-    time: "",
-    convertion: {
-      g: "",
-      percent: "",
-    },
-    polymerization: {
-      percent_time: "",
-      mole_ls: "",
-    },
-    characterization: {
-      n: "",
-      MM: "",
-    },
+    number: id,
+    load_monomer_g: 0,
+    load_monomer_mole: 0,
+    load_monomer_mole_g: 0,
+    load_initiator_g: 0,
+    load_initiator_mole: 0,
+    load_initiator_mole_g: 0,
+    temperature: 0,
+    time: 0,
+    polymer_yield_g: 0,
+    polymer_yield_percent: 0,
+    polymerization_rate_percent: 0,
+    polymerization_rate_mole: 0,
+    polymer_characteristics_viscosity: 0,
+    polymer_characteristics_mol_mass: 0,
   };
 }
 
 export type TProps = { row: string; column: string };
 
-export interface Data {
-  id: number;
-  monomer: {
-    g: string;
-    mole: string;
-    mole_l: string;
-  };
-  initiator: {
-    g: string;
-    mole: string;
-    mole_g: string;
-  };
-  temperature: string;
-  time: string;
-  convertion: {
-    g: string;
-    percent: string;
-  };
-  polymerization: {
-    percent_time: string;
-    mole_ls: string;
-  };
-  characterization: {
-    n: string;
-    MM: string;
-  };
-}
+// export interface Data {
+//   id: number;
+//   monomer: {
+//     g: string;
+//     mole: string;
+//     mole_l: string;
+//   };
+//   initiator: {
+//     g: string;
+//     mole: string;
+//     mole_g: string;
+//   };
+//   temperature: string;
+//   time: string;
+//   convertion: {
+//     g: string;
+//     percent: string;
+//   };
+//   polymerization: {
+//     percent_time: string;
+//     mole_ls: string;
+//   };
+//   characterization: {
+//     n: string;
+//     MM: string;
+//   };
+// }
 
 const Table_2 = () => {
   const [editId, setEditId] = React.useState<TProps>({ row: "", column: "" });
-  const [myData, setMyData] = useState<Data[]>([]);
+  const [myData, setMyData] = useState<RootTableData[]>([]);
 
   useEffect(() => {
     console.log(myData);
@@ -80,26 +88,26 @@ const Table_2 = () => {
     setMyData((old) => [...old, createInitialRow(old.length + 1)]);
   };
 
-  const columns: Column<Data>[] = React.useMemo(
+  const columns: Column<RootTableData>[] = React.useMemo(
     () => [
       {
         Header: "Номер опыта",
-        accessor: ({ id }) => id,
+        accessor: ({ number }) => number,
       },
       {
         Header: "Мономер",
         columns: [
           {
             Header: "г(1)",
-            accessor: "monomer.g",
+            accessor: "load_monomer_g",
           },
           {
             Header: "моль(1)",
-            accessor: "monomer.mole",
+            accessor: "load_monomer_mole",
           },
           {
             Header: "моль/л(1)",
-            accessor: "monomer.mole_l",
+            accessor: "load_monomer_mole_g",
           },
         ],
       },
@@ -108,15 +116,15 @@ const Table_2 = () => {
         columns: [
           {
             Header: "г(2)",
-            accessor: "initiator.g",
+            accessor: "load_initiator_g",
           },
           {
             Header: "моль(2)",
-            accessor: "initiator.mole",
+            accessor: "load_initiator_mole",
           },
           {
             Header: "моль/г(2)",
-            accessor: "initiator.mole_g",
+            accessor: "load_initiator_mole_g",
           },
         ],
       },
@@ -133,11 +141,11 @@ const Table_2 = () => {
         columns: [
           {
             Header: "г",
-            accessor: "convertion.g",
+            accessor: "polymer_yield_g",
           },
           {
             Header: "%",
-            accessor: "convertion.percent",
+            accessor: "polymer_yield_percent",
           },
         ],
       },
@@ -146,25 +154,24 @@ const Table_2 = () => {
         columns: [
           {
             Header: "%/ч или %/мин",
-            accessor: "polymerization.percent_time",
+            accessor: "polymerization_rate_percent",
           },
           {
             Header: "Моль/л*с",
-            accessor: "polymerization.mole_ls",
+            accessor: "polymerization_rate_mole",
           },
         ],
       },
       {
         Header: "Характеристики полимеров",
-
         columns: [
           {
             Header: "[η]",
-            accessor: "characterization.n",
+            accessor: "polymer_characteristics_viscosity",
           },
           {
             Header: "ММ",
-            accessor: "characterization.MM",
+            accessor: "polymer_characteristics_mol_mass",
           },
         ],
       },
@@ -220,7 +227,7 @@ const Table_2 = () => {
                       }>
                       {
                         <TableCell
-                          rowId={row.id}
+                          rowId={row.index}
                           getValue={cell.value}
                           editId={editId}
                           setMyData={setMyData}
@@ -235,7 +242,11 @@ const Table_2 = () => {
           })}
         </tbody>
       </table>
-      <Button onClick={handleAddNewRow}>Add new row</Button>
+      <Button
+        onClick={handleAddNewRow}
+        className="mt-2 bg-transparent dark:text-white text-black hover:after:content-['_New_row'] ">
+        +
+      </Button>
     </div>
   );
 };

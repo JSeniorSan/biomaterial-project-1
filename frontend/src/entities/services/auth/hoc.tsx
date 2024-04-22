@@ -15,15 +15,12 @@ export const checkAuthHoc = (Component: any) => {
     useEffect(() => {
       if (localStorage.getItem("token")) {
         dispatch(checkIsAuth(localStorage.getItem("refreshToken")!));
-        console.log("inside if");
       }
     }, []);
 
     if (isAuth) {
-      console.log("render component");
       return <Component {...props} />;
     } else {
-      console.log("redirect");
       router.push("/");
     }
   };
