@@ -44,8 +44,11 @@ const Lab_2 = () => {
               <Image
                 src="/Lab2formula.svg"
                 alt="sdf"
-                width={400}
-                height={300}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto"
+                priority
               />
               <Paragraph className="dark:text-white">
                 а при разбавлении растворителем величина [М] уменьшается, то при
@@ -80,8 +83,10 @@ const Lab_2 = () => {
                 <Image
                   src="/Lab1and2pic1.svg"
                   alt="df"
-                  width={400}
-                  height={200}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto"
                 />
                 <Paragraph className="dark:text-white">
                   <Text type="warning">Исходные вещества:</Text> стирол - 12 мл;

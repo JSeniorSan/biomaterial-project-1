@@ -36,7 +36,6 @@ const MainLab = () => {
           chema={LAB_TITLE[path - 1]?.pic}
           page_title={LAB_TITLE[path - 1]?.name}
         />
-
         <TheoryContent theoryData={THEORY_PAGE_DATA[path - 1]} />
         <Divider className="dark:bg-white" />
         <PracticeContent title={PRACTICE_PAGE_DATA[path - 1]?.title} />

@@ -84,8 +84,10 @@ const Lab_1 = () => {
                 <Image
                   src="/Lab1and2pic1.svg"
                   alt="df"
-                  width={400}
-                  height={200}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto"
                 />
                 <Paragraph className="dark:text-white">
                   <Text type="warning">Исходные вещества:</Text> стирол - 9-10
