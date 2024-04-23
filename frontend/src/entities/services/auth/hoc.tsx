@@ -14,7 +14,8 @@ export const checkAuthHoc = (Component: any) => {
 
     useEffect(() => {
       if (localStorage.getItem("token")) {
-        dispatch(checkIsAuth(localStorage.getItem("refreshToken")!));
+        const token = localStorage.getItem("refreshToken");
+        token && dispatch(checkIsAuth(token));
       }
     }, []);
 

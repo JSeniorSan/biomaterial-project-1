@@ -2,7 +2,7 @@
 
 import { Input } from "antd";
 import React, { useEffect, useState } from "react";
-import { RootTableData, TProps } from "../table2/_table";
+import { RootTableData, TProps } from "../../model/types";
 
 type TDataProps = (
   value: (val: RootTableData[]) => Array<RootTableData>
@@ -37,8 +37,6 @@ const TableCell = ({
 
       return old.map((dataObj) => {
         if (dataObj.number !== rowId + 1) {
-          console.log("dataObj.number", dataObj.number);
-          console.log("Number(rowId)", rowId);
           return dataObj;
         }
         console.log("меняем", { ...dataObj, [columnIdStr]: value });

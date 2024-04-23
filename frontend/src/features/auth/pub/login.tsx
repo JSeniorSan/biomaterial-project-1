@@ -29,10 +29,7 @@ const formSchema = z.object({
 const Login = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const { error, isAuth, loading } = useSelector(
-    (state: RootState) => state.auth
-  );
-  console.log(isAuth);
+  const { isAuth, loading } = useSelector((state: RootState) => state.auth);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

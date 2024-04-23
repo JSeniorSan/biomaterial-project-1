@@ -5,7 +5,7 @@ import styles from "./style.module.scss";
 import { Button, Card, Divider, Space, Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import Table_2 from "@/app/(privat)/table2/_table";
+import Table_2 from "@/widgets/main/_ui/tables/_table";
 import { useRouter } from "next/navigation";
 
 const Lab_1 = () => {

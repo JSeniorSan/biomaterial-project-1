@@ -21,7 +21,7 @@ $api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
     if (
-      error.response.status == 403 &&
+      error.response.status == 401 &&
       error.config &&
       !error.config._isRetry
     ) {
@@ -38,7 +38,6 @@ $api.interceptors.response.use(
             withCredentials: true,
           }
         );
-
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("refreshToken", response.data.refresh_token);
         return $api.request(originalRequest);

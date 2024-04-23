@@ -3,7 +3,6 @@ import { RootState } from "@/entities/store";
 import { checkIsAuth } from "@/entities/store/auth/auth-thunk";
 import Login from "@/features/auth/pub/login";
 import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks/redux-hooks";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 export default function HomePage() {
@@ -30,9 +29,6 @@ export default function HomePage() {
       {!isAuth && "Вы не авторизованы"}
       {isAuth && "Вы авторизованы"}
       <Login />
-      {/* <Link href="/lab_1" className="text-white p-4 rounded-lg bg-rose-400 ">
-        Перейти на главную
-      </Link> */}
     </section>
   );
 }
