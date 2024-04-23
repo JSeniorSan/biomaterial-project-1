@@ -8,7 +8,9 @@ import { useEffect } from "react";
 export default function HomePage() {
   const dispatch = useAppDispatch();
   const router = useRouter();
+
   const { isAuth } = useAppSelector((state: RootState) => state.auth);
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       const refreshToken = localStorage.getItem("refreshToken");

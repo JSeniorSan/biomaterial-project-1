@@ -1,3 +1,5 @@
+import { Column } from "react-table";
+
 export interface Info_blockInterface {
   id: number;
   value: string;
@@ -28,4 +30,18 @@ export interface RootTableData {
   polymer_characteristics_mol_mass: number | null;
 }
 
-export type TProps = { row: string; column: string };
+export type TEditCellProps = { row: string; column: string };
+
+export type ColumsType = () => Column<RootTableData>[];
+
+export type TDataProps = (
+  value: (val: RootTableData[]) => Array<RootTableData>
+) => void;
+
+export interface CellProps {
+  rowId: number;
+  getValue: string;
+  setMyData: TDataProps;
+  editId: TEditCellProps;
+  setEditId: (val: TEditCellProps) => void;
+}

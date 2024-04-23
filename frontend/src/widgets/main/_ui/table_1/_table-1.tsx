@@ -1,42 +1,21 @@
 "use client";
 import { useTable } from "react-table";
-import React, { useEffect, useState } from "react";
-import TableCell from "./_table-cell";
+import React from "react";
+import TableCell from "../_table-cell";
 import { Button } from "antd";
-import { useColumn } from "../../../../shared/hooks/useColumn";
-
 import { LabsService } from "@/entities/services/labs/table-service";
-import { TProps } from "../../model/types";
+import { useTableLogic } from "@/shared/hooks/useTableLogic";
+import { useColumns } from "@/shared/hooks/useColumns";
+import { Table_1_Colums_Config } from "./colums-config-1";
+import { TEditCellProps } from "@/widgets/main/model/types";
 
 const Table_2 = () => {
-  const { columns, myData, editId, setMyData, setEditId } = useColumn();
+  const { myData, editId, setMyData, setEditId } = useTableLogic();
 
-  useEffect(() => {
-    async function sendData() {
-      try {
-        myData;
-        const response = await LabsService.updateTable(myData);
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    sendData();
-  }, [myData]);
+  const { columns } = useColumns(Table_1_Colums_Config);
 
-  useEffect(() => {
-    async function getInitialTable() {
-      try {
-        const response = await LabsService.getTableData();
-        console.log(response);
-        setMyData([...response.data]);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    getInitialTable();
-  }, []);
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data: myData });
 
   const handleAddNewRow = async () => {
     try {
@@ -50,12 +29,9 @@ const Table_2 = () => {
     }
   };
 
-  const handleEditClick = (cellId: TProps) => {
+  const handleEditClick = (cellId: TEditCellProps) => {
     setEditId(cellId);
   };
-
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data: myData });
 
   return (
     <div className="xl:w-[770px] lg:w-[450px] md:w-[400px] sm:w-[450px] w-[300px] overflow-hidden overflow-x-scroll border shadow-lg dark:bg-gradient-to-tr dark:from-slate-500/65 dark:to-blue-950/40 p-3 dark:text-white/80 rounded bg-gradient-to-tr from-cyan-700/30 to-indigo-400/50 text-neutral-600 ">
