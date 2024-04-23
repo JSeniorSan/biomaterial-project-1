@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { RootTableData, TCellProps } from "@/widgets/main/model/types";
+import { RootTableData, TEditCellProps } from "@/widgets/main/model/types";
 import { LabsService } from "@/entities/services/labs/table-service";
 
 export const useTableLogic = () => {
-  const [editId, setEditId] = React.useState<TCellProps>({
+  const [editId, setEditId] = React.useState<TEditCellProps>({
     row: "",
     column: "",
   });
