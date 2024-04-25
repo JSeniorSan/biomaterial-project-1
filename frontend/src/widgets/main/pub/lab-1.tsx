@@ -6,15 +6,11 @@ import { Button, Card, Divider, Space, Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import Table_2 from "@/widgets/main/_ui/table_1/_table-1";
-import { useRouter } from "next/navigation";
+import CompleteLabBlock from "../_ui/_complete-lab-block";
 
 const Lab_1 = () => {
   const { Title, Paragraph, Text } = Typography;
-  const router = useRouter();
 
-  const handeleDoneWork = () => {
-    router.push("/");
-  };
   return (
     <AnimatePresence>
       <motion.section
@@ -171,8 +167,7 @@ const Lab_1 = () => {
                 </Paragraph>
                 <Table_2 />
               </Card>
-
-              <Button onClick={handeleDoneWork}>Сдать работу</Button>
+              <CompleteLabBlock />
             </Space>
           </Space>
         </Typography>

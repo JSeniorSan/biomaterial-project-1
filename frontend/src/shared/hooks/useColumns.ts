@@ -1,3 +1,4 @@
+"use client";
 import { ColumsType } from "@/widgets/main/model/types";
 import { useMemo } from "react";
 

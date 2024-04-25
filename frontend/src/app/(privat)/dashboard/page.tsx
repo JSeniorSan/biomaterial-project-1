@@ -1,7 +1,8 @@
+import DashboardPage from "@/widgets/dashboard/pub/dashboard-page";
 import React from "react";
 
 const Dashboard = () => {
-  return <section></section>;
+  return <DashboardPage />;
 };
 
 export default Dashboard;

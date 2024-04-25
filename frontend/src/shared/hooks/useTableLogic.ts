@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { RootTableData, TEditCellProps } from "@/widgets/main/model/types";
 import { LabsService } from "@/entities/services/labs/table-service";
