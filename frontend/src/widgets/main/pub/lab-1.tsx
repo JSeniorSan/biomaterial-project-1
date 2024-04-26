@@ -5,10 +5,12 @@ import styles from "./style.module.scss";
 import { Button, Card, Divider, Space, Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import Table_2 from "@/app/(privat)/table2/_table";
+import Table_2 from "@/widgets/main/_ui/table_1/_table-1";
+import CompleteLabBlock from "../_ui/_complete-lab-block";
 
 const Lab_1 = () => {
   const { Title, Paragraph, Text } = Typography;
+
   return (
     <AnimatePresence>
       <motion.section
@@ -78,8 +80,10 @@ const Lab_1 = () => {
                 <Image
                   src="/Lab1and2pic1.svg"
                   alt="df"
-                  width={400}
-                  height={200}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto"
                 />
                 <Paragraph className="dark:text-white">
                   <Text type="warning">Исходные вещества:</Text> стирол - 9-10
@@ -161,9 +165,9 @@ const Lab_1 = () => {
                     </ol>
                   </Space>
                 </Paragraph>
+                <Table_2 />
               </Card>
-              <Table_2 />
-              <Button>Сдать работу</Button>
+              <CompleteLabBlock />
             </Space>
           </Space>
         </Typography>

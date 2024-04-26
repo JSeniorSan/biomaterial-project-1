@@ -90,8 +90,10 @@ const Lab_4 = () => {
                   <Image
                     src={"/Lab4formula1.pdf.svg"}
                     alt="f1"
-                    width={300}
-                    height={300}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                   />
                 </Paragraph>
                 <Paragraph className="dark:text-white">
@@ -113,8 +115,10 @@ const Lab_4 = () => {
                     <Image
                       src={"/Lab4_scema.svg"}
                       alt="schema"
-                      width={400}
-                      height={400}
+                      width="0"
+                      height="0"
+                      sizes="100vw"
+                      className="w-full h-auto"
                     />
                     <Text className=" dark:text-white">
                       Рис. 3. Прибор для получения полиэфира
@@ -130,8 +134,10 @@ const Lab_4 = () => {
                   <Image
                     src={"/Lab4formula2.pdf.svg"}
                     alt="f2"
-                    width={300}
-                    height={300}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                   />
                 </Paragraph>
                 <Paragraph className="dark:text-white">
@@ -141,8 +147,10 @@ const Lab_4 = () => {
                   <Image
                     src={"/Lab4formula3.pdf.svg"}
                     alt="f3"
-                    width={300}
-                    height={300}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                   />
                   <Text className="dark:text-white">
                     где M<sub>Σ</sub> суммарная молекулярная масса исходной
@@ -179,8 +187,10 @@ const Lab_4 = () => {
                   <Image
                     src={"/Lab4formula4.pdf.svg"}
                     alt="f4"
-                    width={400}
-                    height={400}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                   />
                 </Paragraph>
                 <Paragraph className="dark:text-white">

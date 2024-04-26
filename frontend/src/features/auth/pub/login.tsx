@@ -10,32 +10,50 @@ import {
   FormMessage,
 } from "@/shared/ui/form";
 import { Input } from "@/shared/ui/input";
-
-import React from "react";
+import React, { useEffect } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import AuthBtnPanelControl from "../_ui/auth-btn-panel-control";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "@/shared/lib/hooks/redux-hooks";
+import { RootState } from "@/entities/store";
+import { login } from "@/entities/store/auth/auth-thunk";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
-  login: z.string().min(2).max(50),
+  username: z.string().min(2).max(50),
   password: z.string().min(2).max(50),
 });
 
 const Login = () => {
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+
+  const { isAuth, loading } = useSelector((state: RootState) => state.auth);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      login: "",
+      username: "",
       password: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    console.log(isAuth);
+    dispatch(login(values));
   }
+
+  useEffect(() => {
+    if (isAuth) {
+      router.push("/lab_1");
+    }
+  }, [isAuth]);
+
   return (
-    <div>
+    <figure>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
           <Card className="bg-[#756C83] dark:bg-[#BDB79A]">
@@ -43,13 +61,13 @@ const Login = () => {
               <CardContent>
                 <FormField
                   control={form.control}
-                  name="login"
+                  name="username"
                   render={({ field }) => (
                     <FormItem className="pt-4">
                       <FormLabel className="font-bold">Логин</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Логин..."
+                          placeholder="username..."
                           {...field}
                           className="bg-[var(--input-bg)]"
                         />
@@ -80,10 +98,10 @@ const Login = () => {
               </CardContent>
             </Card>
           </Card>
-          <AuthBtnPanelControl />
+          <AuthBtnPanelControl loading={loading} />
         </form>
       </Form>
-    </div>
+    </figure>
   );
 };
 

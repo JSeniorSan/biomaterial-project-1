@@ -1,3 +1,5 @@
+"use client";
+
 import Lab_4 from "@/widgets/main/pub/lab-4";
 
 import React from "react";

@@ -58,9 +58,10 @@ const Lab_3 = () => {
                   <Image
                     src="/viscozimeters.svg"
                     alt="sdf"
-                    width={400}
-                    height={400}
-                    className=""
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                   />
                 </div>
 
@@ -127,29 +128,37 @@ const Lab_3 = () => {
                   <Image
                     src={"/Lab3vyaz1.pdf.svg"}
                     alt="f1"
-                    width={200}
-                    height={200}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                   />
                   <li>удельную вязкость</li>
                   <Image
                     src={"/Lab3vyaz2.pdf.svg"}
                     alt="f1"
-                    width={200}
-                    height={200}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                   />
                   <li>приведенную вязкость</li>
                   <Image
                     src={"/Lab3vyaz3.pdf.svg"}
                     alt="f1"
-                    width={200}
-                    height={200}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                   />
                   <li>логарифмическую вязкость</li>
                   <Image
                     src={"/Lab3vyaz4.pdf.svg"}
                     alt="f1"
-                    width={200}
-                    height={200}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                   />
                   <Text strong className="dark:text-gray-400">
                     где c — концентрация раствора.
@@ -163,8 +172,10 @@ const Lab_3 = () => {
                 <Image
                   src={"/Lab3vyaz5.pdf.svg"}
                   alt="f1"
-                  width={400}
-                  height={400}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto"
                 />
               </Paragraph>
               <Paragraph className="dark:text-white">
@@ -173,8 +184,10 @@ const Lab_3 = () => {
                 <Image
                   src={"/Lab3vyaz6.pdf.svg"}
                   alt="f1"
-                  width={200}
-                  height={200}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto"
                 />
                 <Text className="dark:text-white">
                   в котором значение показателя степени а может изменяться в
@@ -202,8 +215,10 @@ const Lab_3 = () => {
                 <Image
                   src={"/Lab3vyaz7.pdf.svg"}
                   alt="f1"
-                  width={400}
-                  height={400}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto"
                 />
               </Paragraph>
               <Paragraph className="dark:text-white">
@@ -212,8 +227,10 @@ const Lab_3 = () => {
                 <Image
                   src={"/Lab3vyaz8.pdf.svg"}
                   alt="f1"
-                  width={400}
-                  height={400}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto"
                 />
               </Paragraph>
               <Paragraph className="dark:text-white">
@@ -225,8 +242,10 @@ const Lab_3 = () => {
                 <Image
                   src={"/Lab3vyaz9.pdf.svg"}
                   alt="f1"
-                  width={400}
-                  height={400}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto"
                 />
                 <Text className="dark:text-white">
                   Предельные значения указанных уравнений совпадают: А = а =
@@ -240,8 +259,10 @@ const Lab_3 = () => {
                 <Image
                   src={"/Lab3plot.pdf.svg"}
                   alt="f1"
-                  width={800}
-                  height={800}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto"
                 />
                 <Text className="dark:text-white text-center">
                   Рисунок 2 — Зависимость приведённой вязкости (I) и
@@ -390,8 +411,10 @@ const Lab_3 = () => {
                         <Image
                           src="/Lab3_concentr.pdf.svg"
                           alt="concentration"
-                          width={300}
-                          height={300}
+                          width="0"
+                          height="0"
+                          sizes="100vw"
+                          className="w-full h-auto"
                         />
                         <Text className="dark:text-white">
                           где Р - навеска полимера, г: V, V<sub>1</sub> и V
