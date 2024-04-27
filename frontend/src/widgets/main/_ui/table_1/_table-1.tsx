@@ -9,8 +9,11 @@ import { useColumns } from "@/shared/hooks/useColumns";
 import { Table_1_Colums_Config } from "./colums-config-1";
 import { TEditCellProps } from "@/widgets/main/model/types";
 
-const Table_2 = () => {
+type TableType = "edit" | "view";
+
+const Table_2 = ({ type }: { type: TableType }) => {
   const { myData, editId, setMyData, setEditId } = useTableLogic();
+  console.log(type);
 
   const { columns } = useColumns(Table_1_Colums_Config);
 
@@ -79,7 +82,10 @@ const Table_2 = () => {
                           column: cell.column.id,
                         })
                       }>
-                      {
+                      {type === "view" && (
+                        <div key={cell.column.id}>{cell.value}</div>
+                      )}
+                      {type === "edit" && (
                         <TableCell
                           rowId={row.index}
                           getValue={cell.value}
@@ -87,7 +93,7 @@ const Table_2 = () => {
                           setMyData={setMyData}
                           setEditId={setEditId}
                         />
-                      }
+                      )}
                     </td>
                   );
                 })}
@@ -96,11 +102,13 @@ const Table_2 = () => {
           })}
         </tbody>
       </table>
-      <Button
-        onClick={handleAddNewRow}
-        className="mt-2 bg-transparent dark:text-white text-black hover:after:content-['_New_row'] ">
-        +
-      </Button>
+      {type === "edit" && (
+        <Button
+          onClick={handleAddNewRow}
+          className="mt-2 bg-transparent dark:text-white text-black hover:after:content-['_New_row'] ">
+          +
+        </Button>
+      )}
     </div>
   );
 };

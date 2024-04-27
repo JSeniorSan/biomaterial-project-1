@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./style.module.scss";
 import { Button, Card, Divider, Space, Typography } from "antd";
 import Image from "next/image";
@@ -10,6 +10,7 @@ import CompleteLabBlock from "../_ui/_complete-lab-block";
 
 const Lab_1 = () => {
   const { Title, Paragraph, Text } = Typography;
+  const [passed, setPassed] = useState<boolean>(false);
 
   return (
     <AnimatePresence>
@@ -165,9 +166,9 @@ const Lab_1 = () => {
                     </ol>
                   </Space>
                 </Paragraph>
-                <Table_2 />
+                <Table_2 type={passed ? "view" : "edit"} />
               </Card>
-              <CompleteLabBlock />
+              <CompleteLabBlock setPassed={setPassed} />
             </Space>
           </Space>
         </Typography>
