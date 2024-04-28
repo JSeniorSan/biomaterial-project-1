@@ -37,13 +37,18 @@ const columns = [
 
 type LabStatus = string | number;
 
+type LabContent = {
+  user_id: string;
+  status: LabStatus;
+};
+
 interface DataType {
   key: React.Key;
   student: string;
-  lab_1: LabStatus;
-  lab_2: LabStatus;
-  lab_3: LabStatus;
-  lab_4: LabStatus;
+  lab_1: LabContent;
+  lab_2: LabContent;
+  lab_3: LabContent;
+  lab_4: LabContent;
 }
 
 export interface Lab_summary_list {
@@ -53,10 +58,16 @@ export interface Lab_summary_list {
 
 export interface Summary {
   user_name_surname: string;
+  user_id: string;
   lab_summary_list: Lab_summary_list[];
 }
 
-const App: React.FC = () => {
+export type PropsType = {
+  setGetWork: (value: string) => void;
+};
+
+const App: React.FC<PropsType> = (props) => {
+  const { setGetWork } = props;
   const [summaryList, setSummaryList] = useState<DataType[]>([]);
 
   useEffect(() => {
@@ -68,18 +79,30 @@ const App: React.FC = () => {
           return {
             key: id + 1,
             student: item.user_name_surname,
-            lab_1: item.lab_summary_list[0]
-              ? item.lab_summary_list[0].status_or_mark
-              : "uncompleted",
-            lab_2: item.lab_summary_list[1]
-              ? item.lab_summary_list[1].status_or_mark
-              : "uncompleted",
-            lab_3: item.lab_summary_list[2]
-              ? item.lab_summary_list[2].status_or_mark
-              : "uncompleted",
-            lab_4: item.lab_summary_list[3]
-              ? item.lab_summary_list[3].status_or_mark
-              : "uncompleted",
+            lab_1: {
+              user_id: item.user_id,
+              status: item.lab_summary_list[0]
+                ? item.lab_summary_list[0].status_or_mark
+                : "uncompleted",
+            },
+            lab_2: {
+              user_id: item.user_id,
+              status: item.lab_summary_list[1]
+                ? item.lab_summary_list[1].status_or_mark
+                : "uncompleted",
+            },
+            lab_3: {
+              user_id: item.user_id,
+              status: item.lab_summary_list[2]
+                ? item.lab_summary_list[2].status_or_mark
+                : "uncompleted",
+            },
+            lab_4: {
+              user_id: item.user_id,
+              status: item.lab_summary_list[3]
+                ? item.lab_summary_list[3].status_or_mark
+                : "uncompleted",
+            },
           };
         });
         console.log("prepare data", prepareData);
@@ -91,11 +114,9 @@ const App: React.FC = () => {
     };
     getAllWorks();
   }, []);
-  // const router = useRouter();
 
-  const handleViewUserWork = () => {
-    console.log("click");
-    // router.push(`/dashboard/${id}`);
+  const handleViewUserWork = (id: string) => {
+    setGetWork(id);
   };
 
   return (
@@ -110,33 +131,39 @@ const App: React.FC = () => {
               title={`Lab ${incrementIndex}`}
               dataIndex={`lab_${incrementIndex}`}
               key={incrementIndex}
-              render={(status: LabStatus) => {
-                const color = status === "unrated" ? "blue" : "volcano";
+              render={(status: { status: LabStatus; user_id: string }) => {
+                const color = status.status === "unrated" ? "blue" : "volcano";
+                console.log("stat", status);
 
                 const popContent = () => {
-                  if (status === "unrated") {
-                    return <Button onClick={handleViewUserWork}>Click</Button>;
+                  if (status.status === "unrated") {
+                    return (
+                      <Button
+                        onClick={() => handleViewUserWork(status.user_id)}>
+                        Посмотреть результаты
+                      </Button>
+                    );
                   }
                   return null;
                 };
 
                 return (
                   <>
-                    {typeof status !== "number" ? (
+                    {typeof status.status !== "number" ? (
                       <Popover
                         content={popContent}
                         title={
-                          status === "done"
+                          status.status === "unrated"
                             ? "Проверить работу"
                             : "Данные не были получены"
                         }
                         trigger="click">
                         <Tag color={color} className="cursor-pointer">
-                          {status}
+                          {status.status}
                         </Tag>
                       </Popover>
                     ) : (
-                      <div>{status}</div>
+                      <div>{status.status}</div>
                     )}
                   </>
                 );

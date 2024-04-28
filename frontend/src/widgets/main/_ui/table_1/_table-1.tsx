@@ -11,10 +11,12 @@ import { TEditCellProps } from "@/widgets/main/model/types";
 
 type TableType = "edit" | "view";
 
-const Table_2 = ({ type }: { type: TableType }) => {
-  const { myData, editId, setMyData, setEditId } = useTableLogic();
-  console.log(type);
+type TableProps = {
+  type: TableType;
+};
 
+const Table_2 = ({ type }: TableProps) => {
+  const { myData, editId, setMyData, setEditId } = useTableLogic();
   const { columns } = useColumns(Table_1_Colums_Config);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =

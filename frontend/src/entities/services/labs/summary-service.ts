@@ -13,4 +13,14 @@ export class SummaryService {
   static getSummary() {
     return axios.get<Summary[]>(`${API_URL}/summary-table`);
   }
+
+  static sendMark(lab_name: string, mark: string, user_id: string) {
+    return axios.patch(API_URL + "/summary-table/grade-work", null, {
+      params: {
+        lab_name,
+        mark,
+        user_id,
+      },
+    });
+  }
 }
