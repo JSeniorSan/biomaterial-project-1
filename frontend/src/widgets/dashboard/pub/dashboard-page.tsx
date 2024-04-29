@@ -4,6 +4,7 @@ import DashboardList from "../ui/dasboard-list";
 import DashboardTitle from "../ui/dashboard-header";
 
 import DashboardInfo from "../ui/dashboard-info";
+import DashboardStudent from "../ui/dashboard-student";
 
 const DashboardPage = () => {
   const [getWork, setGetWork] = useState<string>("");
@@ -13,7 +14,8 @@ const DashboardPage = () => {
     <section className="w-full min-h-screen p-5 flex flex-col gap-5">
       <DashboardTitle />
       <h2>Таблица сданных работ:</h2>
-      <div className=" overflow-x-auto">
+      <DashboardStudent />
+      {/* <div className=" overflow-x-auto">
         <DashboardList setGetWork={setGetWork} />
       </div>
       <div className="flex gap-5">
@@ -26,7 +28,7 @@ const DashboardPage = () => {
             user_id=""
           />
         )}
-      </div>
+      </div> */}
     </section>
   );
 };
