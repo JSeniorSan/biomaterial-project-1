@@ -1,5 +1,5 @@
 import $api, { API_URL } from "@/entities/http";
-import { Summary } from "@/widgets/dashboard/ui/dasboard-list";
+import { Summary } from "@/widgets/dashboard/model/types";
 import axios from "axios";
 
 export class SummaryService {

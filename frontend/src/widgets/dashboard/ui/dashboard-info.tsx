@@ -1,31 +1,28 @@
 "use client";
 import { SummaryService } from "@/entities/services/labs/summary-service";
-import React from "react";
+import React, { useState } from "react";
 import Table_2 from "@/widgets/main/_ui/table_1/_table-1";
 import { Button, Input } from "antd";
 
 export type InfoProps = {
-  mark: string;
   lab_name: string;
   user_id: string;
   setGetWork: (value: string) => void;
-  setMark: (value: string) => void;
 };
 
-const DashboardInfo = ({
-  lab_name,
-  mark,
-  user_id,
-  setGetWork,
-  setMark,
-}: InfoProps) => {
+const DashboardInfo = ({ lab_name, user_id, setGetWork }: InfoProps) => {
+  const [mark, setMark] = useState<string>("");
+  console.log("lab_name", lab_name);
+  console.log("user_id", user_id);
+  console.log("mark", mark);
+
   const handleClickConfirmMark = async (
+    labName: string,
     mark: string,
-    userId: string,
-    labName: string
+    userId: string
   ) => {
     try {
-      const response = await SummaryService.sendMark(mark, userId, labName);
+      const response = await SummaryService.sendMark(labName, mark, userId);
       console.log("sendMark data", response);
       setGetWork("");
     } catch (error) {
@@ -46,7 +43,7 @@ const DashboardInfo = ({
           onChange={(e) => setMark(e.target.value)}
           className="h-10  w-12"
         />
-        <Button onClick={() => handleClickConfirmMark(mark, lab_name, user_id)}>
+        <Button onClick={() => handleClickConfirmMark(lab_name, mark, user_id)}>
           Confirm
         </Button>
       </div>
