@@ -14,7 +14,6 @@ export default function HomePage() {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       const refreshToken = localStorage.getItem("refreshToken");
-      console.log(refreshToken);
       refreshToken && dispatch(checkIsAuth(refreshToken));
     }
   }, []);
@@ -28,8 +27,6 @@ export default function HomePage() {
       <h1 className="block text-center text-3xl font-extrabold md:bg-[var(--header-bg-color)] md:w-full  md:p-5 md:text-[var(--text-header)] ">
         Лабораторные кафедры биоматериалов
       </h1>
-      {!isAuth && "Вы не авторизованы"}
-      {isAuth && "Вы авторизованы"}
       <Login />
     </section>
   );

@@ -1,17 +1,20 @@
+"use client";
 import React from "react";
-import DashboardList from "../ui/dasboard-list";
-import { Input } from "antd";
 import DashboardTitle from "../ui/dashboard-header";
+import DashboardStudent from "../ui/dashboard-student";
+import { useCheckRole } from "@/shared/hooks/useCheckRole";
+import DashboardTeacher from "../ui/dashboard-teacher";
 
 const DashboardPage = () => {
-  return (
-    <section className="w-full h-screen p-5 flex flex-col gap-5">
-      <DashboardTitle />
+  const { role } = useCheckRole();
+  console.log(role);
 
+  return (
+    <section className="w-full min-h-screen p-5 flex flex-col gap-5">
+      <DashboardTitle title={role} />
       <h2>Таблица сданных работ:</h2>
-      <div className=" overflow-x-scroll">
-        <DashboardList />
-      </div>
+      {role === "student" && <DashboardStudent />}
+      {role === "teacher" && <DashboardTeacher />}
     </section>
   );
 };
