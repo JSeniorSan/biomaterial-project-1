@@ -12,18 +12,13 @@ export type InfoProps = {
 
 const DashboardInfo = ({ lab_name, user_id, setGetWork }: InfoProps) => {
   const [mark, setMark] = useState<string>("");
-  console.log("lab_name", lab_name);
-  console.log("user_id", user_id);
-  console.log("mark", mark);
-
   const handleClickConfirmMark = async (
     labName: string,
     mark: string,
     userId: string
   ) => {
     try {
-      const response = await SummaryService.sendMark(labName, mark, userId);
-      console.log("sendMark data", response);
+      await SummaryService.sendMark(labName, mark, userId);
       setGetWork("");
     } catch (error) {
       console.error(error);

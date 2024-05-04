@@ -41,14 +41,12 @@ const Login = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    console.log(isAuth);
     dispatch(login(values));
   }
 
   useEffect(() => {
     if (isAuth) {
-      router.push("/lab_1");
+      router.replace("/lab_1");
     }
   }, [isAuth]);
 
