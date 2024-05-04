@@ -8,7 +8,6 @@ import { useEffect } from "react";
 export default function HomePage() {
   const dispatch = useAppDispatch();
   const router = useRouter();
-
   const { isAuth } = useAppSelector((state: RootState) => state.auth);
 
   useEffect(() => {
@@ -19,7 +18,7 @@ export default function HomePage() {
   }, []);
 
   if (isAuth) {
-    router.push("/lab_1");
+    router.prefetch("/lab_1");
   }
 
   return (

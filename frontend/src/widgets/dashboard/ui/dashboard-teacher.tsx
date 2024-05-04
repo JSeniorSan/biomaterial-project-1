@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import DashboardInfo from "./dashboard-info";
 import DashboardList from "./dasboard-list";

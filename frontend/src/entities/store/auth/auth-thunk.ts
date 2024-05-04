@@ -26,7 +26,6 @@ export const checkIsAuth = createAsyncThunk(
   "/auth/checkIsAuth",
   async (refreshToken: string, { rejectWithValue }) => {
     try {
-      console.log("thunk refresh token", refreshToken);
       const response = await axios.post<LoginResponseType>(
         `${API_URL}/auth/refresh`,
         `grant_type=&refresh_token=${refreshToken}&scope=&client_id=&client_secret=`,
@@ -38,10 +37,9 @@ export const checkIsAuth = createAsyncThunk(
           withCredentials: true,
         }
       );
-      console.log("refresh thunk response", response);
+
       localStorage.setItem("token", response.data.access_token);
       localStorage.setItem("refreshToken", response.data.refresh_token);
-      console.log("done refresh");
     } catch (error) {
       if (error instanceof Error) {
         return rejectWithValue(error);

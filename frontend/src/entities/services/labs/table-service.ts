@@ -1,6 +1,7 @@
 import $api from "@/entities/http";
 import { RootTableData } from "@/widgets/main/model/types";
 import axios, { AxiosResponse } from "axios";
+import { API_URL } from "../../http/index";
 
 export class LabsService {
   static createEmptyRow(
@@ -23,7 +24,7 @@ export class LabsService {
   }
 
   static setSummary(id: string) {
-    return axios.post("/summary-table", {
+    return axios.post(`${API_URL}/summary-table`, {
       params: {
         user_id: id,
       },
