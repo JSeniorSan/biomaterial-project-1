@@ -2,6 +2,7 @@ import axios from "axios";
 import { LoginResponseType } from "../services/auth/types";
 
 export const API_URL = process.env.API_URL;
+console.log(process.env.API_URL);
 
 const $api = axios.create({
   withCredentials: true,
