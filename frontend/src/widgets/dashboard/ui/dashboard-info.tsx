@@ -10,7 +10,7 @@ export type InfoProps = {
   setGetWork: (value: string) => void;
 };
 
-const DashboardInfo = ({ lab_name, user_id, setGetWork }: InfoProps) => {
+const DashboardInfo = ({ lab_name, setGetWork, user_id }: InfoProps) => {
   const [mark, setMark] = useState<string>("");
   const handleClickConfirmMark = async (
     labName: string,
@@ -29,7 +29,7 @@ const DashboardInfo = ({ lab_name, user_id, setGetWork }: InfoProps) => {
     <>
       <div>
         <h3 className="p-3">Результаты:</h3>
-        <Table_2 type="view" />
+        <Table_2 type="view" user_id={user_id} role="teacher" />
       </div>
       <div className="flex flex-col gap-3">
         <h3 className="py-3">Оценка:</h3>

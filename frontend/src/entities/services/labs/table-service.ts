@@ -22,6 +22,13 @@ export class LabsService {
   static getTableData() {
     return $api.get("/labs/styrol-polymerization-bulk/get-as-student");
   }
+  static getTeacherTableData(id: string) {
+    return $api.get("/labs/styrol-polymerization-bulk/get-as-teacher", {
+      params: {
+        user_id: id,
+      },
+    });
+  }
 
   static setSummary(id: string) {
     return axios.post(`${API_URL}/summary-table`, {
