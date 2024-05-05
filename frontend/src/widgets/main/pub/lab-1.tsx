@@ -166,7 +166,7 @@ const Lab_1 = () => {
                     </ol>
                   </Space>
                 </Paragraph>
-                <Table_2 type={passed ? "view" : "edit"} />
+                <Table_2 type={passed ? "view" : "edit"} role="student" />
               </Card>
               <CompleteLabBlock setPassed={setPassed} />
             </Space>

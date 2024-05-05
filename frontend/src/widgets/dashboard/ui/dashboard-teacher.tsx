@@ -6,6 +6,7 @@ import DashboardList from "./dasboard-list";
 const DashboardTeacher = () => {
   const [getWork, setGetWork] = useState<string>("");
   const [name, setName] = useState<string>("");
+  console.log("getWork", getWork);
 
   return (
     <>

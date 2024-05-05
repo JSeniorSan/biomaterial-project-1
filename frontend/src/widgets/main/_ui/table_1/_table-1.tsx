@@ -10,13 +10,16 @@ import { Table_1_Colums_Config } from "./colums-config-1";
 import { TEditCellProps } from "@/widgets/main/model/types";
 
 type TableType = "edit" | "view";
+export type RoleType = "teacher" | "student";
 
-type TableProps = {
+export type TableProps = {
   type: TableType;
+  role: RoleType;
+  user_id?: string;
 };
 
-const Table_2 = ({ type }: TableProps) => {
-  const { myData, editId, setMyData, setEditId } = useTableLogic();
+const Table_2 = ({ type, role, user_id }: TableProps) => {
+  const { myData, editId, setMyData, setEditId } = useTableLogic(role, user_id);
   const { columns } = useColumns(Table_1_Colums_Config);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
